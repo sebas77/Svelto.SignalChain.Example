@@ -39,6 +39,16 @@ namespace Svelto.Communication.SignalChain
 	        Broadcast(notification, null, false);
 	    }
 		
+		public void Broadcast<T>(T notification, bool notifyDisabled)
+	    {
+	        Broadcast(typeof(T), notification, notifyDisabled);
+	    }
+		
+		public void Broadcast(Type notification, bool notifyDisabled)
+	    {
+	        Broadcast(notification, null, notifyDisabled);
+	    }
+		
 		private void Broadcast(Type notificationType, object notification, bool notifyDisabled)
 	    {
 	        foreach (MonoBehaviour behaviour in _root.GetComponentsInChildren<MonoBehaviour>(notifyDisabled))

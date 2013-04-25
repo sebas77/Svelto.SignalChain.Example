@@ -4,11 +4,17 @@ using Svelto.Communication.SignalChain;
 public class CubeAlone : MonoBehaviour 
 {
 	public Transform root;
+	SignalChain _chain;
+	
+	void Awake()
+	{
+		_chain = new SignalChain(root);
+	}
 	
 	void OnMouseDown()
 	{
-		new SignalChain(root).Broadcast("event");
+		_chain.Broadcast("event");
 		
-		new SignalChain(root).Broadcast(new BetterEvent(Color.green));
+		_chain.Broadcast(new BetterEvent(Color.green));
 	}
 }

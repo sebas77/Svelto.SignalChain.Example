@@ -2,43 +2,8 @@
 /Assembly-CSharp.csproj
 /Assembly-CSharp.pidb
 
-/Library/*.gitignore
-/Library/ScriptAssemblies/*.gitignore
-/Library/cache/00/*.gitignore
-/Library/cache/11/*.gitignore
-/Library/cache/35/*.gitignore
-/Library/cache/4c/*.gitignore
-/Library/cache/74/*.gitignore
-/Library/cache/8a/*.gitignore
-/Library/cache/9d/*.gitignore
-/Library/cache/a5/*.gitignore
-/Library/cache/aa/*.gitignore
-/Library/cache/ac/*.gitignore
-/Library/cache/ae/*.gitignore
-/Library/cache/ba/*.gitignore
-/Library/cache/ef/*.gitignore
-/Library/cache/ff/*.gitignore
-/Library/metadata/00/*.gitignore
-/Library/metadata/11/*.gitignore
-/Library/metadata/35/*.gitignore
-/Library/metadata/4c/*.gitignore
-/Library/metadata/74/*.gitignore
-/Library/metadata/8a/*.gitignore
-/Library/metadata/9d/*.gitignore
-/Library/metadata/a5/*.gitignore
-/Library/metadata/aa/*.gitignore
-/Library/metadata/ac/*.gitignore
-/Library/metadata/ae/*.gitignore
-/Library/metadata/ba/*.gitignore
-/Library/metadata/ef/*.gitignore
-/Library/metadata/ff/*.gitignore
-/Library/previews/00/0000000000000000e000000000000000_/*.gitignore
+/Library/*
 
-/Temp/*
-/Temp/*
-/Temp/*
-/Temp/*
-/Temp/*
 /Temp/*
 /SignalChain-csharp.sln
 /SignalChain.sln
@@ -56,7 +21,3 @@
 /ProjectSettings/TagManager.asset
 /ProjectSettings/TimeManager.asset
 
-/Library/cache/4b/*
-/Library/cache/6d/*
-/Library/metadata/4b/*
-/Library/metadata/6d/*

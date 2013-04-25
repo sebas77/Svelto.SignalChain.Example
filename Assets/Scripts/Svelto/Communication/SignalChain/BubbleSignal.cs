@@ -9,20 +9,11 @@ namespace Svelto.Communication.SignalChain
 				
 		public BubbleSignal (Transform node)
 		{
-			Transform 	root = null;
+			Transform 	root = node;
 			
-			while (node != null)
-			{
-				if (RootIsFound(node) == true)
-				{
-					root = node;
-					
-					break;
-				}
+			while (root != null && RootIsFound(root) == false)	
+				root = root.parent;
 				
-				node = node.parent;
-			}
-			
 			_signalChain = new SignalChain(root == null ? node : root);
 		}
 		
@@ -38,7 +29,9 @@ namespace Svelto.Communication.SignalChain
 		
 		private bool RootIsFound(Transform node)
 		{
-			return Array.FindIndex<MonoBehaviour>(node.GetComponents<MonoBehaviour>(), (obj) => { return obj is IChainRoot; }) != -1;
+			return Array.FindIndex<MonoBehaviour>(node.GetComponents<MonoBehaviour>(), obj => { 
+				return obj is IChainRoot; 
+			}) != -1;
 		}
 	}
 }
