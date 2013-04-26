@@ -24,7 +24,9 @@ namespace Svelto.Communication.SignalChain
 		
 		public void Send(Type notificationType, object notification)
 	    {
-	        foreach (MonoBehaviour behaviour in _root.GetComponents<MonoBehaviour>())
+	    	MonoBehaviour[] behaviours = _root.GetComponents<MonoBehaviour>();
+	    
+	        foreach (MonoBehaviour behaviour in behaviours)
 				if (behaviour is IChainListener)
 					(behaviour as IChainListener).Listen(notification != null ? notification : notificationType);
 	    }
