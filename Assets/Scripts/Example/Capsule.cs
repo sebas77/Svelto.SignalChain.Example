@@ -3,11 +3,11 @@ using Svelto.Communication.SignalChain;
 
 public class Capsule : MonoBehaviour 
 {
-	BubbleSignal _bubbleSignal;
+	BubbleSignal<Cube> _bubbleSignal;
 	
 	void Awake()
 	{
-		_bubbleSignal = new BubbleSignal(this.transform);
+		_bubbleSignal = new BubbleSignal<Cube>(this.transform);
 	}		
 	
 	void OnMouseDown()

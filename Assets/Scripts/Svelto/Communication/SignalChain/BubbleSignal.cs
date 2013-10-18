@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Svelto.Communication.SignalChain
 {
-	public class BubbleSignal
+	public class BubbleSignal<T>
 	{
-		private SignalChain _signalChain;
+		SignalChain _signalChain;
 				
 		public BubbleSignal (Transform node)
 		{
@@ -17,20 +17,58 @@ namespace Svelto.Communication.SignalChain
 			_signalChain = new SignalChain(root == null ? node : root);
 		}
 		
-		public void Dispatch(Type type)
+		//  The notification of type T is broadcasted 
+		//	to all the active children of type IChainListener
+		
+		public void Dispatch<T>()
 		{
-			_signalChain.Broadcast(type);
+			_signalChain.Broadcast<T>();
 		}
+		
+		//  The notification of type T is broadcasted 
+		//	to all the active children of type IChainListener
 		
 		public void Dispatch<T>(T notification)
 		{
-			_signalChain.Broadcast(notification);
+			_signalChain.Broadcast<T>(notification);
+		}
+		
+		//  The notification of type T is broadcasted 
+		//	to all the children of type IChainListener
+		
+		public void DeepDispatch<T>()
+		{
+			_signalChain.DeepBroadcast<T>();
+		}
+		
+		//  The notification of type T is broadcasted 
+		//	to all the children of type IChainListener
+		
+		public void DeepDispatch<T>(T notification)
+		{
+			_signalChain.DeepBroadcast<T>(notification);
+		}
+		
+		//  The notification of type T is sent 
+		//	to the root components of type IChainListener
+		
+		public void TargetedDispatch<T>()
+		{
+			_signalChain.Send<T>();
+		}
+		
+		//  The notification of type T is sent 
+		//	to the root components of type IChainListener
+		
+		public void TargetedDispatch<T>(T notification)
+		{
+			_signalChain.Send<T>(notification);
 		}
 		
 		private bool RootIsFound(Transform node)
 		{
-			return Array.FindIndex<MonoBehaviour>(node.GetComponents<MonoBehaviour>(), obj => { 
-				return obj is IChainRoot; 
+			return Array.FindIndex<Component>(node.GetComponents<Component>(), obj => { 
+				return obj is T; 
 			}) != -1;
 		}
 	}

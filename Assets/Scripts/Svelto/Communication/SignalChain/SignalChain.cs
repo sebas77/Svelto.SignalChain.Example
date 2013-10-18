@@ -17,7 +17,12 @@ namespace Svelto.Communication.SignalChain
 	        Send(typeof(T), notification);
 	    }
 		
-		public void Send(Type notification)
+		public void Send<T>()
+	    {
+	        Send(typeof(T));
+	    }
+		
+		void Send(Type notification)
 	    {
 	        Send(notification, null);
 	    }
@@ -31,12 +36,17 @@ namespace Svelto.Communication.SignalChain
 					(behaviour as IChainListener).Listen(notification != null ? notification : notificationType);
 	    }
 		
+		public void Broadcast<T>()
+	    {
+	        Broadcast(typeof(T));
+	    }
+		
 		public void Broadcast<T>(T notification)
 	    {
 	        Broadcast(typeof(T), notification, false);
 	    }
 		
-		public void Broadcast(Type notification)
+		void Broadcast(Type notification)
 	    {
 	        Broadcast(notification, null, false);
 	    }
@@ -58,12 +68,17 @@ namespace Svelto.Communication.SignalChain
 					(behaviour as IChainListener).Listen(notification != null ? notification : notificationType);
 	    }
 		
+		public void DeepBroadcast<T>()
+	    {
+	        DeepBroadcast(typeof(T));
+	    }
+		
 		public void DeepBroadcast<T>(T notification)
 	    {
 	        DeepBroadcast(typeof(T), notification);
 	    }
 		
-		public void DeepBroadcast(Type notification)
+		void DeepBroadcast(Type notification)
 	    {
 	        DeepBroadcast(notification, null);
 	    }
