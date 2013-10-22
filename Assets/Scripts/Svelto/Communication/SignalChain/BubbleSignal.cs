@@ -17,52 +17,52 @@ namespace Svelto.Communication.SignalChain
 			_signalChain = new SignalChain(root == null ? node : root);
 		}
 		
-		//  The notification of type T is broadcasted 
+		//  The notification of type M is broadcasted 
 		//	to all the active children of type IChainListener
 		
-		public void Dispatch<T>()
+		public void Dispatch<M>()
 		{
-			_signalChain.Broadcast<T>();
+			_signalChain.Broadcast<M>();
 		}
 		
-		//  The notification of type T is broadcasted 
+		//  The notification of type M is broadcasted 
 		//	to all the active children of type IChainListener
 		
-		public void Dispatch<T>(T notification)
+		public void Dispatch<M>(M notification)
 		{
-			_signalChain.Broadcast<T>(notification);
+			_signalChain.Broadcast<M>(notification);
 		}
 		
-		//  The notification of type T is broadcasted 
+		//  The notification of type M is broadcasted 
 		//	to all the children of type IChainListener
 		
-		public void DeepDispatch<T>()
+		public void DeepDispatch<M>()
 		{
-			_signalChain.DeepBroadcast<T>();
+			_signalChain.DeepBroadcast<M>();
 		}
 		
-		//  The notification of type T is broadcasted 
+		//  The notification of type M is broadcasted 
 		//	to all the children of type IChainListener
 		
-		public void DeepDispatch<T>(T notification)
+		public void DeepDispatch<M>(M notification)
 		{
-			_signalChain.DeepBroadcast<T>(notification);
+			_signalChain.DeepBroadcast<M>(notification);
 		}
 		
 		//  The notification of type T is sent 
 		//	to the root components of type IChainListener
 		
-		public void TargetedDispatch<T>()
+		public void TargetedDispatch<M>()
 		{
-			_signalChain.Send<T>();
+			_signalChain.Send<M>();
 		}
 		
 		//  The notification of type T is sent 
 		//	to the root components of type IChainListener
 		
-		public void TargetedDispatch<T>(T notification)
+		public void TargetedDispatch<M>(M notification)
 		{
-			_signalChain.Send<T>(notification);
+			_signalChain.Send<M>(notification);
 		}
 		
 		private bool RootIsFound(Transform node)
